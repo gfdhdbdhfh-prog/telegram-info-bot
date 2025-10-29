@@ -38,16 +38,18 @@ QUESTIONS = {
 user_modes = {}
 user_states = {}  # {user_id: {"mode": str, "q_index": int, "answers": []}}
 
-# 🛠 Клавиатура для /settings
 def settings_keyboard():
-    kb = ReplyKeyboardMarkup(resize_keyboard=True)
-    kb.add(
-        KeyboardButton("Обычный режим"),
-        KeyboardButton("Средний режим"),
-        KeyboardButton("Максимальный режим")
+    kb = ReplyKeyboardMarkup(
+        keyboard=[
+            [
+                KeyboardButton(text="Обычный режим"),
+                KeyboardButton(text="Средний режим"),
+                KeyboardButton(text="Максимальный режим"),
+            ]
+        ],
+        resize_keyboard=True
     )
     return kb
-
 
 # 🔹 Команда /start
 @dp.message(Command("start"))
